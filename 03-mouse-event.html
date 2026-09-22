@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal IMT - Eventos de Rato</title>
+    <script src="03-mouse-event.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 380px;
+        }
+        .infracao-item {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .painel-detalhes {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #2c3e50;
+            color: white;
+            border-radius: 6px;
+            font-size: 13px;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Portal IMT - Histórico</h2>
+        <p>Passe o rato sobre a infração para ver os detalhes:</p>
+
+        <div id="infracao" class="infracao-item">
+            <strong>⚠️ Excesso de Velocidade</strong><br>
+            <small>Local: Avenida Principal | Data: 12/05/2026</small>
+        </div>
+
+        <div id="painel-detalhes" class="painel-detalhes">
+            <strong>📋 Detalhes da Infração:</strong><br>
+            • Radar: A1 km 42<br>
+            • Velocidade registada: 110 km/h (Limite: 80 km/h)<br>
+            • Perda de pontos: 3 pontos
+        </div>
+    </div>
+
+</body>
+</html>
