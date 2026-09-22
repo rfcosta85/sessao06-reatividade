@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal IMT - Objeto Evento e event.target</title>
+    <script src="04-event-target.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 420px;
+        }
+        .infracao-card {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .infracao-card:hover {
+            background-color: #eef2f7;
+            transform: translateX(4px);
+        }
+        .painel-selecao {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #e8f8f5;
+            border: 1px solid #a3e4d7;
+            border-radius: 6px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Portal IMT - As Suas Infrações</h2>
+        <p>Clique em qualquer infração para ver quem o alvo do evento selecionou:</p>
+
+        <div class="infracao-card" data-tipo="Velocidade" data-valor="150.00">
+            <strong>⚠️ Excesso de Velocidade</strong> - €150.00
+        </div>
+
+        <div class="infracao-card" data-tipo="Estacionamento" data-valor="60.00">
+            <strong>🚗 Estacionamento Proibido</strong> - €60.00
+        </div>
+
+        <div class="infracao-card" data-tipo="Telemóvel" data-valor="250.00">
+            <strong>📱 Uso de Telemóvel ao Volante</strong> - €250.00
+        </div>
+
+        <div id="painel-selecao" class="painel-selecao"></div>
+    </div>
+
+</body>
+</html>
