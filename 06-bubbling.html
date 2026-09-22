@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal IMT - Problema Real do Bubbling</title>
+    <script src="06-bubbling.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .container {
+            width: 450px;
+        }
+        /* CARTÃO PAI */
+        .cartao-veiculo {
+            background-color: white;
+            border: 2px solid #bdc3c7;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: border-color 0.2s;
+        }
+        .cartao-veiculo:hover {
+            border-color: #3498db;
+        }
+        /* BOTÃO FILHO */
+        .btn-imprimir {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+        /* MODAL (JANELA QUE DEVE ABRIR SÓ AO CLICAR NO CARTÃO) */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none; /* Escondido por padrão */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 350px;
+            text-align: center;
+        }
+        .btn-fechar {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        /* CONTROLO DA AULA E LOGS */
+        .painel-controlo {
+            margin-top: 20px;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .log-terminal {
+            background: #2c3e50;
+            color: #2ecc71;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 11px;
+            height: 90px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Portal IMT - As suas Viaturas</h2>
+
+        <!-- CARTÃO PAI (Ao clicar abre o Modal de detalhes) -->
+        <div id="cartao-veiculo" class="cartao-veiculo">
+            <h3>🚘 Toyota Corolla (2023)</h3>
+            <p><small>💡 Clique no cartão para abrir a ficha completa do veículo.</small></p>
+            
+            <!-- BOTÃO FILHO (Deveria Apenas Imprimir o Recibo) -->
+            <button id="btn-imprimir" class="btn-imprimir">📄 Imprimir Recibo IUC</button>
+        </div>
+
+        <!-- PAINEL COM INTERRUPTOR DE PROTEÇÃO (Para demonstração na aula) -->
+        <div class="painel-controlo">
+            <label>
+                <input type="checkbox" id="chk-proteger"> 
+                <strong>Ativar <code>event.stopPropagation()</code> no botão</strong>
+            </label>
+            <div id="log-terminal" class="log-terminal">
+                > Aguardando cliques do utilizador...
+            </div>
+        </div>
+    </div>
+
+    <!-- JANELA MODAL DE DETALHES DO VEÍCULO -->
+    <div id="modal-detalhes" class="modal-overlay">
+        <div class="modal-content">
+            <h3>📋 Ficha Técnica Completa</h3>
+            <p><strong>Nº do Quadro:</strong> VF1234567890<br>
+               <strong>Categoria:</strong> Ligeiro de Passageiros<br>
+               <strong>Status:</strong> Regularizado</p>
+            <button id="btn-fechar-modal" class="btn-fechar">Fechar Detalhes</button>
+        </div>
+    </div>
+</body>
+</html>
