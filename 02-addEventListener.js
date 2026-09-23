@@ -11,8 +11,9 @@ inputMatricula.addEventListener("input", function() {
 
 btnBuscar.addEventListener("click", function() {
     const matricula = inputMatricula.value.trim();
-
-    if (matricula === "" || !/^[A-Z]{2}-\d{2}-[A-Z]{2}$/.test(matricula.toUpperCase())) {
+    const PADRAO_MATRICULA = /^[A-Z]{2}-\d{2}-[A-Z]{2}$/;
+    
+    if (matricula === "" || !PADRAO_MATRICULA.test(matricula.toUpperCase())) {
         painelResultado.innerHTML = `<span style="color: red;">⚠️ Por favor, introduza uma matrícula válida.</span>`;
     } else {
         painelResultado.innerHTML = `
